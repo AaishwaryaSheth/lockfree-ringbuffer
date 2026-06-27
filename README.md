@@ -100,7 +100,7 @@ Step by step:
                     │  │ 256 slots   │  no spinlock        │
                     │  └──────┬──────┘                    │
                     │         │  xSemaphoreGiveFromISR()  │
-                    │         │  every 16 samples          │
+                    │         │  every 64 samples          │
                     │         ▼                            │
                     │  ┌─────────────┐  Priority 5        │
                     │  │ LED ctrl    │  Core 1             │
@@ -163,7 +163,7 @@ static inline IRAM_ATTR bool rb_push(ring_buf_t *rb, const adc_sample_t *s) {
 `xQueueSendFromISR()` acquires a spinlock on every call. At 1 kHz that is manageable. At 100 kHz it consumes measurable CPU and introduces scheduler jitter. The lock-free buffer has zero overhead in the ISR path.
 
 ### Batched Semaphore Wake
-The ISR gives the semaphore every 16 samples — not every sample. This reduces context-switch pressure by 16× while the consumer still processes data within 16 ms worst case.
+The ISR gives the semaphore every 64 samples — not every sample. This reduces context-switch pressure by 16× while the consumer still processes data within 16 ms worst case.
 
 ### IRAM_ATTR
 The ISR and `rb_push()` are placed in IRAM. If they lived in flash and a cache miss occurred during ISR execution, the CPU would stall and cause a panic. `IRAM_ATTR` pins them permanently in fast internal RAM.
