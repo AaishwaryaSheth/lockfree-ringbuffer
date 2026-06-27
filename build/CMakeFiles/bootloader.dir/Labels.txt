@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+G:/espidf/isr/build/CMakeFiles/bootloader
+G:/espidf/isr/build/CMakeFiles/bootloader.rule
+G:/espidf/isr/build/CMakeFiles/bootloader-complete.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+G:/espidf/isr/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
