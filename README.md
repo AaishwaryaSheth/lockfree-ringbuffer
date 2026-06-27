@@ -59,17 +59,23 @@ ESP32 GND     →  LED short pin (-)
 Potentiometer controls **brightness** across all zones — full left = off, full right = maximum brightness.
 
 ---
+## Hardware Setup
 
+### Full system wiring
+![Full setup with ESP32, ACS712 current sensor, potentiometer and LED](images/breadboard.jpeg)
+
+### LED glowing — LOW zone (current sensor reading normal)
+![LED glowing bright on breadboard](images/breadboard2.jpeg)
 ## Breadboard Wiring for LED
 
 ```
 Breadboard column:   a          b    [GAP]    f         g
-Row 1:          [GPIO2 wire]─[res leg1]    [res leg2]─[LED + long pin]
+Row 1:          [GPIO4 wire]─[res leg1]    [res leg2]─[LED + long pin]
 Row 2:          [GND wire]                            [LED - short pin]
 ```
 
 Step by step:
-1. GPIO2 jumper wire → Row 1, hole **a**
+1. GPIO4 jumper wire → Row 1, hole **a**
 2. Resistor leg 1 → Row 1, hole **b**
 3. Resistor leg 2 → Row 1, hole **f** ← bridges the center gap
 4. LED long pin (+) → Row 1, hole **g**
@@ -99,7 +105,7 @@ Step by step:
                     │  ┌─────────────┐  Priority 5        │
                     │  │ LED ctrl    │  Core 1             │
                     │  │ task        │  rb_pop() drain     │
-                    │  │             │  LEDC PWM → GPIO2   │
+                    │  │             │  LEDC PWM → GPIO4   │
                     │  └─────────────┘                    │
                     │                                      │
                     │  ┌─────────────┐  Priority 2        │
@@ -109,7 +115,7 @@ Step by step:
                     │  └─────────────┘                    │
                     └─────────────────────────────────────┘
                                    │
-                                GPIO2
+                                GPIO4
                                    │
                               💡 LED (PWM)
 ```
