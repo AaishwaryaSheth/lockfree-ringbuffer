@@ -62,10 +62,10 @@ Potentiometer controls **brightness** across all zones — full left = off, full
 ## Hardware Setup
 
 ### Full system wiring
-![Full setup with ESP32, ACS712 current sensor, potentiometer and LED](images/breadboard.jpeg)
+![Full setup with ESP32, ACS712 current sensor, potentiometer and LED](main/images/breadboard.jpeg)
 
 ### LED glowing — LOW zone (current sensor reading normal)
-![LED glowing bright on breadboard](images/breadboard2.jpeg)
+![LED glowing bright on breadboard](main/images/breadboard2.jpeg)
 ## Breadboard Wiring for LED
 
 ```
